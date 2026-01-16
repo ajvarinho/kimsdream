@@ -13,6 +13,14 @@ body {
     background-position-x: -150%; */
 }
 
+@font-face {
+    font-family: 'VCR'; 
+  src: url('./assets/fonts/VCR_OSD_MONO_1.001.woff2') format('woff2'),
+       url('./assets/fonts/VCR_OSD_MONO_1.001.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 img {
     width: 100%;
 }
@@ -40,6 +48,10 @@ header {
 
 .title:last-of-type {
     transform: translateY(9rem) translateX(6rem) rotateZ(90deg);
+}
+
+.first-screen {
+    position: relative;
 }
 
 .bg-wrap {
@@ -78,9 +90,37 @@ header {
 .dzn-wrap {
     position: absolute;
     inset: 0;
-    background-image: url('./assets/img/diznilend.png');
+    background-image: url('./assets/img/diznilend2.png');
     opacity: 0.5;
     background-size: cover;
+}
+
+.passport-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* min-height: 50vh; */
+    min-width: 50vw;
+    border: 2rem solid green;
+}
+
+.donald {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: url('./assets/img/donald2.png');
+    background-size: 152%;
+    background-position-x: 140%;
+    background-position-y: 50%;
+}
+
+.passport {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-image: url('./assets/img/pasos1.png');
+    background-position-y: 85%;
+  opacity: 0.4;
 }
 
 .spacer {
@@ -110,13 +150,14 @@ header {
 .marquee {
     position: relative;
     width: 450px;
-    background-color: yellow;
-    color: black;
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
 }
 .marquee p {
+    font-family: 'VCR';
+    color: yellow;
+    font-size: 1.5rem;
     display: inline-block;
     padding-left: 100%;
     animation: marquee 15s linear infinite;
