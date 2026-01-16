@@ -90,7 +90,7 @@ header {
 .dzn-wrap {
     position: absolute;
     inset: 0;
-    background-image: url('./assets/img/diznilend.png');
+    background-image: url('./assets/img/diznilend2.png');
     opacity: 0.5;
     background-size: cover;
 }
@@ -99,7 +99,7 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     min-width: 50vw;
     border: 2rem solid green;
 }
