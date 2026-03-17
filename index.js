@@ -11,8 +11,8 @@ document.addEventListener('scroll', ()=>{
 
 
 const scrollWrap = document.querySelector('.horizontal-scroll-wrap');
-const distance = Math.round(scrollWrap.getBoundingClientRect().top);
-console.log(distance, 'distance')
+// const distance = Math.round(scrollWrap.getBoundingClientRect().top);
+// console.log(distance, 'distance')
 const scrollEl = document.querySelector('.scroll-container');
 let isHorizontalScrolling = false;
 let scrollProgress = 0;
@@ -23,66 +23,53 @@ const observer = new IntersectionObserver(
       const entry = entries[0];
 
       if (entry.isIntersecting) {
-        console.log('jes')
-        alert('in view')
-              isHorizontalScrolling = true;
-      document.body.style.overflow = 'hidden';
+        console.log('jes', scrollWrap.scrollHeight)
+        document.body.style.overflow = 'hidden';
+        
+        scrollWrap.addEventListener("scroll", () => {
+          checkScrollToBottom(scrollWrap);
+        });
 
       } else {
         console.log('no')
-              isHorizontalScrolling = false;
-      document.body.style.overflow = '';
-      scrollProgress = 0;
+        isHorizontalScrolling = false;
+        document.body.style.overflow = '';
+        scrollProgress = 0;
       };
 
     },
     {
       root: null, 
-      rootMargin: '100px 0px 100px 0px',
+      rootMargin: '10px 0px 0px 0px',
       threshold: 1
     }
   );
 
   observer.observe(scrollWrap);
 
-      let check = scrollEl.getBoundingClientRect().top;
+// Check if user has scrolled the element to the bottom
+function isScrolled(scrollWrap) {
+  return (
+    Math.abs(scrollWrap.scrollHeight - scrollWrap.clientHeight - scrollWrap.scrollTop) <= 1
+  );
+}
 
-      // page height - get bounding right
+// Check if user has scrolled the element back to top
+function isScrolledBack(scrollWrap) {
+  return (
+    Math.abs(scrollWrap.scrollHeight - scrollWrap.clientHeight - scrollWrap.scrollTop) === 0
+  );
+}
 
-      let checkDistance = scrollEl.getBoundingClientRect().right;
+function checkScrollToBottom(scrollWrap) {
+  if (isScrolled(scrollWrap) || isScrolledBack(scrollWrap)) {
+    document.body.style.overflow = '';
+  } else {
+    document.body.overflow = 'hidden';
+  }
+}
 
-      
-  document.addEventListener('scroll', (e) => {
+// scrollWrap.addEventListener("scroll", () => {
+//   checkScrollToBottom(scrollWrap);
+// });
 
-      console.log('scrollin', e.target)
-        
-        //if (!isHorizontalScrolling) return;
-        console.log('scroll', window.scrollY)
-
-    console.log(e.target)
-
-    let scrollDistance = scrollEl.scrollTop;
-
-    console.log('width', scrollEl.scrollWidth, 'height', scrollEl.scrollHeight, 'scroll top', scrollDistance)
-  
-    e.preventDefault();
-
-    if(isHorizontalScrolling){
-      //body overflow hidden
-      //event listener za scrollEl
-      //upravljati logikom za crollEl
-    }
-  
-    // // Check if horizontal scroll is complete
-    // if (scrollProgress >= maxScroll && e.deltaY > 0) {
-    //     // Finished scrolling right, release control
-    //     console.log('cscrolled right')
-    //     isHorizontalScrolling = false;
-    //     //document.body.style.overflow = '';
-    // } else if (scrollProgress <= 0 && e.deltaY < 0) {
-    //     // Scrolled back to start, release control
-    //     console.log('cscrolled back')
-    //     isHorizontalScrolling = false;
-    //     //document.body.style.overflow = '';
-    // }
-});
