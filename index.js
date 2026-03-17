@@ -11,8 +11,6 @@ document.addEventListener('scroll', ()=>{
 
 
 const scrollWrap = document.querySelector('.horizontal-scroll-wrap');
-// const distance = Math.round(scrollWrap.getBoundingClientRect().top);
-// console.log(distance, 'distance')
 const scrollEl = document.querySelector('.scroll-container');
 let isHorizontalScrolling = false;
 let scrollProgress = 0;
@@ -31,10 +29,7 @@ const observer = new IntersectionObserver(
         });
 
       } else {
-        console.log('no')
-        isHorizontalScrolling = false;
         document.body.style.overflow = '';
-        scrollProgress = 0;
       };
 
     },
@@ -54,22 +49,10 @@ function isScrolled(scrollWrap) {
   );
 }
 
-// Check if user has scrolled the element back to top
-function isScrolledBack(scrollWrap) {
-  return (
-    Math.abs(scrollWrap.scrollHeight - scrollWrap.clientHeight - scrollWrap.scrollTop) === 0
-  );
-}
-
 function checkScrollToBottom(scrollWrap) {
-  if (isScrolled(scrollWrap) || isScrolledBack(scrollWrap)) {
+  if (isScrolled(scrollWrap) || scrollWrap.scrollTop === 0) {
     document.body.style.overflow = '';
   } else {
     document.body.overflow = 'hidden';
   }
 }
-
-// scrollWrap.addEventListener("scroll", () => {
-//   checkScrollToBottom(scrollWrap);
-// });
-
