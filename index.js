@@ -35,7 +35,7 @@ const observer = new IntersectionObserver(
     },
     {
       root: null, 
-      rootMargin: '10px 0px 0px 0px',
+      rootMargin: '-10px 0px 0px -10px',
       threshold: 1
     }
   );
