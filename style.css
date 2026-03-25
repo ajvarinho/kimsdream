@@ -43,6 +43,10 @@ header {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    /**/
+    mix-blend-mode: color-burn;
+  /* background-color: beige; */
+  background-color: #3800ff;
 }
 
 .title {
@@ -51,7 +55,9 @@ header {
   margin: 0;
   padding: 0;
   /**/
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
+  /*color-burn*/
+  -webkit-text-stroke: 2px chartreuse;
 }
 
 .title:last-of-type {
@@ -67,7 +73,7 @@ header {
 .bg-wrap {
     position: relative;
     height: 100vh;
-    background: grey;
+    background: linear-gradient(45deg, aliceblue, aqua);
     /**/
     transform-style: preserve-3d;
 }
@@ -93,7 +99,8 @@ header {
     background-position: 200%;
     /**/
     background-position: -135%;
-    width: 115%;
+    /* width: 115%; */
+    width: 100%;
     z-index: -1;
 }
 
@@ -101,7 +108,7 @@ header {
     position: absolute;
     inset: 0;
     background-image: url('./assets/img/diznilend2.png');
-    opacity: 0.5;
+    opacity: 0;
     background-size: cover;
 }
 
@@ -111,7 +118,7 @@ header {
     left: 50%;
     /* min-height: 50vh; */
     min-width: 50vw;
-    border: 2rem solid green;
+    border: 1rem solid green;
 }
 
 .donald {
@@ -281,36 +288,13 @@ rect {
 }
 
 .horizontal-scroll-wrap {
-    /*
-    min-height: 100vh;
-    height: 100vh;
-    width: 60vw;
-    position: relative;
+    /* height: 112%;
+    width: 67%; */
+    position: absolute;
+    inset: 120px;
     z-index: 5;
-    border: 1rem solid purple;
-    */
-    /*
-    transform: rotate(-90deg) translateY(-35rem);
-    transform-origin: right top;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    
-    top: 0;
-    left: 0%;*/
-    /**/
-    height: 112%;
-    width: 67%;
-    position: relative;
-    z-index: 5;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    border: 1rem solid purple;
     transform: rotate(-90deg) translateY(0rem);
     transform-origin: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    top: -38px;
-    left: 10%;
 }
 
 
