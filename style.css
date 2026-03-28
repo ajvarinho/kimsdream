@@ -47,6 +47,7 @@ header {
     mix-blend-mode: color-burn;
   /* background-color: beige; */
   background-color: #3800ff;
+      pointer-events: none;
 }
 
 .title {
@@ -119,6 +120,7 @@ header {
     /* min-height: 50vh; */
     min-width: 50vw;
     border: 1rem solid green;
+    pointer-events: none;
 }
 
 .donald {
@@ -273,52 +275,29 @@ rect {
     background-image: url(./assets/img/ht2.png);
 }
 
-.wrap-test {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    border: 1rem solid blue;
-    padding: 1rem;
-}
-
-.element {
-    height: 100%;
-    width: 100%;
-    background: orange;
-}
-
 .horizontal-scroll-wrap {
-    /* height: 112%;
-    width: 67%; */
-    position: absolute;
-    inset: 120px;
-    z-index: 5;
-    transform: rotate(-90deg) translateY(0rem);
-    transform-origin: center;
+  position: relative;
+  left: 10px;
+  width: 95dvw;
+  height: 95dvh;
+  overflow: hidden;
+  border: 1em solid red;
 }
-
 
 .scroll-container {
-    /* width: 200vw; */
-    overflow-x: hidden;
-    overflow-y: scroll;
-    /*test*/
-    /* transform: rotateX(-90deg); */
-    
-
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  /* scroll-snap-type: x mandatory;   */
 }
 
-.content {
-    height: 100vh;
-    width: 100vw;
-    background-color: green;
+.scroll-child {
+  width: 100dvw;
+  height: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border: 1em solid yellow;
 }
-
-.content.two {
-    background-color: rgba(135, 23, 191, 0.7);
-}
-
-
 
 .golconda-wrap {
     position: relative;
