@@ -341,3 +341,9 @@ height: 18rem;
     border: 1px solid;
     background-image: url('./assets/img/gl.png');
 }
+
+@media (max-width: 512px){
+    .title {
+        font-size: 4rem;
+    }
+}
