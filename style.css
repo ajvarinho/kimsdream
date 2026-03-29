@@ -35,7 +35,8 @@ img {
 }
 
 header {
-  position: fixed;
+    /*ios safari fix*/
+  position: sticky;
   /* width: 100%; */
   top: 2rem;
   z-index: 5;
